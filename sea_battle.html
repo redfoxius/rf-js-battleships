@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+	<head>
+		<title>SEA BATTLESHIP</title>
+		<meta charset='utf-8'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src='jquery-1.9.0.min.js'></script>
+		<style>
+			body {
+				background-color: rgba(102, 205, 170, 0.7);
+			}			
+			div#board {
+								
+			}
+			div#messageArea {
+				position: absolute;
+				top: 0px;				
+                left: 10px;
+                display: none;
+			}
+            div#control {
+                
+                
+            }
+			table {
+				position: absolute;
+                top: 50px;
+                left: 20px;
+				border-spacing: 0px;
+                border: 1px solid rgba(116, 152, 26, 1);
+                
+			}
+			td {
+				width: 60px;
+				height: 60px;
+                border: 1px solid rgba(116, 152, 26, 1);
+                background-color: rgba(60, 179, 113, 0.5);
+			}
+			form {
+				padding: 15px;
+				background-color: rgb(83, 175, 19);
+			}
+			form input {
+				background-color: rgb(152, 207, 113);
+				border-color: rgb(83, 175, 19);
+				font-size: 1em;
+			}
+			#inputForm {
+                position: absolute;
+				top: 0px;
+				right: 0px;
+            }
+            #generateForm {
+                display: block;
+            }
+			.hit {
+				background: url('ship-blue.png') no-repeat center center;
+			}
+			.miss {
+				background: url('miss60.png') no-repeat center center;
+			}
+      #statBlock {
+          margin: 10px;
+      }
+		</style>
+	</head>
+	<body>
+        <div class='container-fluid'>
+        <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <form id="generateForm">
+                <legend>Данные для генерации</legend>
+                <fieldset>
+                    <label>Размер игрового поля (5-10)</label>
+				    <input type='text' id='boardSize' value='10' /><br>
+                    <label>Кол-во однопалубных кораблей (0-4)</label>
+                    <input type='text' id='ship0' value='4' /><br>
+                    <label>Кол-во двухпалубных кораблей (0-3)</label>
+                    <input type='text' id='ship1' value='3' /><br>
+                    <label>Кол-во трёхпалубных кораблей (0-2)</label>
+                    <input type='text' id='ship2' value='2' /><br>
+                    <label>Кол-во четырёхпалубных кораблей (0-1)</label>
+                    <input type='text' id='ship3' value='1' /><br>
+				    <input type='button' id='genButton' value='Сгенерировать новое!' class="btn" />
+                </fieldset>
+			</form>
+            <div id="statBlock" class="alert alert-info">
+                Игровая статистика:
+            </div>
+        </div>
+		<div id='board' class="col-lg-9 col-md-9 col-sm-12">
+			<div id='messageArea' class="alert alert-success"></div>
+			<table id="gridTable"></table>
+			<form id="inputForm">
+                <legend>Координаты для выстрела</legend>
+                <fieldset>
+				    <input type='text' id='guessInput' placeholder='A0'>
+				    <input type='button' id='fireButton' value='Fire!'>
+                </fieldset>
+			</form>
+		</div>
+        </div>
+        </div>
+		<script src='battleships.js'></script>
+	</body>
+</html>
